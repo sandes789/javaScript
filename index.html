@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <!-- Add Tow Numbers -->
+    <h4>Add Tow Numbers: </h4>
+    <form > 
+        <input type="text" id="value1" placeholder="enter first value">
+        <input type="text" id="value2" placeholder="enter second value">
+        <input type="button" onclick="add()" value="ADD">
+        <input type="text" id="message" value="">
+    </form>
+
+    <br><br>
+    
+    <!-- Onkeyup Last name -->
+    <h4>Onkeyup Last name: </h4>
+    <form>
+        <label>First Name</label>
+        <input type="text" id="firstname"><br>
+        <label>Last Name</label>
+        <input type="text" onkeyup="myFunction()" id="lastname"><br>
+        <label>Father First Name</label>
+        <input type="text" id="Fatherfirstname"><br>
+        <label>Father Last Name</label>
+        <input type="text" id="Fatherlastname"><br>
+    </form>
+
+    <br><br>
+
+    <!-- Salary -->
+    <h4>Salary: </h4>
+    <form>
+        <label>Net Salary is 
+            <input onkeyup="mySalary()" type="number" id="salary">
+        </label><br>
+        <label>Afte Pf and Tax, Salary is 
+                <p  id="aftersalary"></p>
+            </label>
+    </form>
+
+    <!-- Form Validation -->
+    <h4>Form Validation</h4>
+    <form>
+        <label>User Name</label>
+        <input type="text" id="username"><br>
+        <label>Password</label>
+        <input type="password" id="password">
+        <input type="button" onclick="myValidation()" value="Submit">
+        <p id="result"></p>
+    </form>
+
+    
+      
+</body>
+
+<script>
+    // Form Validation
+    function myValidation(){
+        var username = document.getElementById("username");
+        var password = document.getElementById("password");
+        if ( username.value=='' && password.value==''){
+            //var asa = alert("Both field is missing");
+            document.getElementById("result").innerHTML= "Both field is missing";
+            var element =  document.getElementById("result");
+            element.classList.add("mystyle");}
+        else if (username.value=='' ){
+            // alert("username is missing");
+            document.getElementById("result").innerHTML= "username is missing";
+        }
+
+        else if ( password.value==''){
+            // alert("password is missing");
+            document.getElementById("result").innerHTML= "password is missing";
+        }
+        
+        else{
+            // alert('Sucessfully Added');
+            document.getElementById("result").innerHTML= "Sucessfully Added";
+        }
+    }
+
+
+    //  Salary
+    function mySalary(){
+        var salary = document.getElementById("salary").value;
+        var tax = salary * 250;
+        var pf = salary - 1200;
+        document.getElementById("aftersalary").innerHTML = pf;
+
+
+    }
+
+    // Onkeyup Last name
+    function myFunction(){
+        var Lname = document.getElementById("lastname");
+        var FLname = document.getElementById("Fatherlastname");
+        FLname.value = Lname.value;
+    }
+
+
+    // Add Tow Numbers
+    function add(){
+        var x = parseInt(document.getElementById("value1").value);
+        var y = parseInt(document.getElementById("value2").value);
+        var sum = document.getElementById("message");
+        sum.value = x + y; 
+    }
+
+    // function add(a,b){
+    //     sum = a + b;
+    //     return sum;
+    // }
+    // function mul(a,b){
+    //     mul = add(a,b) * 2;
+    //     return mul;
+    // }
+    // document.write(mul(1,1))
+
+</script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</html>
